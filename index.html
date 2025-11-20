@@ -3,113 +3,65 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soil Tongue - Smart Soil Analysis</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <title>Soil Tongue - تحليل ذكي للتربة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Inter', sans-serif; 
-           background: linear-gradient(135deg, #0d9488 0%, #115e59 50%, #134e4a 100%); 
-           color: #ecfeff; min-height: 100vh; }
-    .hero-bg { 
-      background: url('https://images.unsplash.com/photo-1622485762814-25e9d949f525?w=2000&q=80') center/cover no-repeat;
-      background-attachment: fixed;
-      position: relative;
-    }
-    .hero-bg::before { 
-      content: ""; position: absolute; inset: 0; 
-      background: linear-gradient(135deg, rgba(13,148,136,0.9), rgba(17,94,89,0.85));
-      backdrop-filter: blur(8px);
-    Z-index: 1; }
-    .glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(16px); 
-              border: 1px solid rgba(255,255,255,0.2); border-radius: 24px; }
-    h1 { font-size: 7rem; font-weight: 900; letter-spacing: -2px;
-         background: linear-gradient(90deg, #99f6e4, #ecfeff);
-         -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    @media (max-width: 768px) { h1 { font-size: 4rem; } }
-    .btn { background: #ecfeff; color: #134e4a; padding: 18px 48px; border-radius: 999px; 
-           font-weight: 700; box-shadow: 0 10px 40px rgba(236,254,255,0.4); 
-           transition: all 0.4s; }
-    .btn:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(236,254,255,0.6); }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0d9488 0%, #115e59 100%); color: #ecfeff; }
+    .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+    .hero::before { content: ""; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1622485762814-25e9d949f525?w=1600') center/cover no-repeat; opacity: 0.3; }
+    h1 { font-size: 8rem; font-weight: 900; background: linear-gradient(90deg, #99f6e4, #ecfeff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    @media (max-width: 768px) { h1 { font-size: 4.5rem; } }
+    .btn { background: #ecfeff; color: #134e4a; padding: 20px 50px; border-radius: 50px; font-weight: 800; font-size: 1.5rem; box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
+    .glass { background: rgba(255,255,255,0.12); backdrop-filter: blur(12px); border-radius: 24px; border: 1px solid rgba(255,255,255 0.2); }
   </style>
 </head>
-<body class="relative">
+<body>
 
-  <!-- Hero Section - English -->
-  <header class="hero-bg relative py-48 text-center">
-    <div class="relative z-10">
-      <h1 class="mb-6">Soil Tongue</h1>
-      <p class="text-4xl md:text-6xl font-light text-teal-100 mb-12 tracking-wide">
-        Smart Soil Analysis for Maximum Yield
-      </p>
-      <a href="#arabic" class="btn text-xl inline-block">النسخة العربية</a>
-    </div>
+  <!-- الجزء الإنجليزي -->
+  <header class="hero relative">
+    <h1>Soil Tongue</h1>
+    <p class="text-5xl md:text-7xl mt-4 text-teal-100 font-light">Smart Soil Analysis for Maximum Yield</p>
+    <a href="#arabic" class="btn mt-12 inline-block">النسخة العربية</a>
   </header>
 
-  <!-- Content English -->
-  <section class="max-w-5xl mx-auto px-6 py-24 text-center space-y-12">
-    <p class="text-xl md:text-2xl leading-relaxed">
-      In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors. 
-      This technology is invaluable, especially in agricultura, and would significantly contribute to the economies of these countries.
-    </p>
-    <p class="text-xl md:text-2xl leading-relaxed">
-      Therefore, we have designed a device to help farmers determine soil properties such as acidity, temperature, moisture, and salinity — 
-      ensuring higher yields and reduced losses.
-    </p>
-    <p class="text-xl md:text-2xl leading-relaxed">
-      The device is placed in the soil and displays the optimal crop on its screen based on sensor readings — 
-      eliminating effort, time, or losses. It can also be powered entirely by solar energy for continuous operation.
-    </p>
+  <section class="max-w-5xl mx-auto px-6 py-20 text-center space-y-10 text-xl md:text-2xl">
+    <p>In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors...</p>
+    <p>We designed a device that measures soil pH, temperature, moisture, and salinity — then shows the best crop directly on screen.</p>
+    <p>Solar-powered · Zero effort · Maximum profit</p>
   </section>
 
-  <!-- Features -->
-  <section class="max-w-7xl mx-auto px-6 py-20">
-    <h2 class="text-5xl md:text-6xl font-bold text-center mb-16 text-teal-200">Key Features</h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">Soil</div>
-        <h3 class="text-3xl font-bold mb-4">Real-time Analysis</h3>
-        <p class="text-teal-200">pH • Temperature • Moisture • Salinity</p>
-      </div>
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">Crop</div>
-        <h3 class="text-3xl font-bold mb-4">Instant Recommendation</h3>
-        <p class="text-teal-200">Best crop on screen instantly</p>
-      </div>
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">Solar</div>
-        <h3 class="text-3xl font-bold mb-4">Solar Powered</h3>
-        <p class="text-teal-200">Zero cost • Works 24/7</p>
-      </div>
-    </div>
+  <section class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-10">
+    <div class="glass p-12"><div class="text-8xl mb-4">Soil</div><h3 class="text-3xl font-bold">Real-time Analysis</h3></div>
+    <div class="glass p-12"><div class="text-8xl mb-4">Crop</div><h3 class="text-3xl font-bold">Instant Recommendation</h3></div>
+    <div class="glass p-12"><div class="text-8xl mb-4">Sun</div><h3 class="text-3xl font-bold">Solar Powered</h3></div>
   </section>
 
-  <!-- Arabic Section -->
-  <section id="arabic" class="bg-gradient-to-b from-teal-900/50 to-black/30 py-32 mt-20">
+  <!-- الجزء العربي -->
+  <section id="arabic" class="py-32">
     <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-7xl md:text-9xl font-black mb-8 bg-gradient-to-r from-teal-300 to-cyan-100 bg-clip-text text-transparent">
-        Soil Tongue
-      </h1>
-      <p class="text-4xl md:text-6xl text-teal-200 mb-16">تحليل ذكي للتربة لأعلى إنتاجية</p>
+      <h1 class="text-9xl font-black bg-gradient-to-r from-teal-300 to-cyan-100 bg-clip-text text-transparent">Soil Tongue</h1>
+      <p class="text-5xl md:text-7xl text-teal-200 my-10">تحليل ذكي للتربة لأعلى إنتاجية</p>
 
-      <div class="space-y-10 text-xl md:text-2xl text-right" dir="rtl" lang="ar">
-        <p class="max-w-4xl mx-auto">في كثير من الدول يفتقر المزارعون للمعرفة باستخدام التقنيات الحديثة مثل الأردوينو وحساساته، وهذه التقنية لا تُقدَّر بثمن في الزراعة.</p>
-        <p class="max-w-4xl mx-auto">لذلك صممنا جهازًا يحدد خصائص التربة (الحموضة – الحرارة – الرطوبة – الملوحة) لضمان إنتاج أعلى وخسائر أقل.</p>
-        <p class="max-w-4xl mx-auto">يُوضع الجهاز في التربة ويعرض المحصول الأنسب مباشرة على شاشته، ويعمل بالطاقة الشمسية بالكامل.</p>
+      <div class="text-right space-y-10 text-xl md:text-2xl" dir="rtl">
+        <p>في كثير من الدول يفتقر المزارعون للمعرفة باستخدام الأردوينو والحساسات، ونحن صممنا جهاز بسيط يقيس الحموضة والرطوبة ودرجة الحرارة والملوحة.</p>
+        <p>الجهاز يوضع في التربة ويعرض المحصول الأنسب مباشرة على الشاشة بدون أي مجهود.</p>
+        <p>يعمل بالطاقة الشمسية 100% · صفر تكلفة · أعلى ربح</p>
       </div>
 
-      <h2 class="text-5xl md:text-6xl font-bold my-20 text-teal-200">المميزات الرئيسية</h2>
-      <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        <div class="glass p-12"><div class="text-7xl mb-6">Soil</div><h3 class="text-3xl font-bold mb-4">تحليل فوري</h3></div>
-        <div class="glass p-12"><div class="text-7xl mb-6">Crop</div><h3 class="text-3xl font-bold mb-4">اقتراح فوري</h3></div>
-        <div class="glass p-12"><div class="text-7xl mb-6">Solar</div><h3 class="text-3xl font-bold mb-4">طاقة شمسية</h3></div>
+      <div class="grid md:grid-cols-3 gap-10 mt-20">
+        <div class="glass p-12"><div class="text-8xl mb-4">Soil</div><h3 class="text-3xl font-bold">تحليل فوري</h3></div>
+        <div class="glass p-12"><div class="text-8xl mb-4">Crop</div><h3 class="text-3xl font-bold">اقتراح المحصول فورًا</h3></div>
+        <div class="glass p-12"><div class="text-8xl mb-4">Sun</div><h3 class="text-3xl font-bold">طاقة شمسية</h3></div>
       </div>
 
-      <p class="text-3xl text-teal-300 mt-20">تم التطوير بواسطة المهندس أحمد يوسري</p>
+      <p class="text-4xl text-teal-300 mt-20">تم التطوير بواسطة المهندس أحمد يوسري</p>
     </div>
   </section>
 
-  <footer class="text-center py-12 text-teal-300 text-lg">
-    © 2025 Soil Tongue – All Rights Reserved
+  <footer class="text-center py-12 text-teal-300 text-xl">
+    © 2025 Soil Tongue – جميع الحقوق محفوظة
   </footer>
+
 </body>
 </html>
