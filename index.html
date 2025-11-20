@@ -4,113 +4,123 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Soil Tongue - Smart Soil Analysis for Maximum Yield</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #1a4225 0%, #0f2b1a 100%); color: #e0f2e1; }
-    h1, h2, h3 { font-weight: 800; }
-    .section { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
-    .btn { background: #22c55e; padding: 14px 32px; border-radius: 50px; font-weight: bold; transition: 0.3s; }
-    .btn:hover { background: #16a34a; transform: scale(1.05); }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f2417 0%, #0a3d2e 100%); color: #f0fdf4; }
+    .glass { background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .btn { background: linear-gradient(90deg, #22d3ee, #06b6d4); padding: 16px 40px; border-radius: 999px; font-weight: 600; box-shadow: 0 10px 30px rgba(34, 211, 238, 0.3); transition: all 0.4s; }
+    .btn:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(34, 211, 238, 0.4); }
+    .card { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.12); }
+    h1 { font-size: 5rem; background: linear-gradient(90deg, #86efac, #22d3ee); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    @media (max-width: 768px) { h1 { font-size: 3.5rem; } }
   </style>
 </head>
 <body class="min-h-screen">
 
-  <!-- English Section -->
-  <header class="text-center py-24 px-6">
-    <h1 class="text-6xl md:text-8xl font-extrabold text-white mb-4">Soil Tongue</h1>
-    <p class="text-2xl md:text-4xl text-green-300 mb-10">Smart Soil Analysis for Maximum Yield</p>
-    <div class="flex justify-center gap-6 flex-wrap">
-      <a href="#arabic" class="btn text-white text-lg">عرض النسخة العربية</a>
-    </div>
+  <!-- English Part (Top) -->
+  <header class="text-center py-32 px-6">
+    <h1 class="font-black mb-4">Soil Tongue</h1>
+    <p class="text-2xl md:text-4xl text-cyan-300 font-light mb-12 tracking-wider">
+      Smart Soil Analysis for Maximum Yield
+    </p>
+    <a href="#arabic" class="btn text-white inline-block text-xl">النسخة العربية</a>
   </header>
 
-  <section class="section text-center">
-    <h2 class="text-4xl md:text-6xl mb-12">Revolutionizing Agriculture</h2>
-    <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+  <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+    <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
       In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors. 
-      This technology is invaluable, especially in agriculture, and would significantly contribute to the 
-      economies of these countries.
+      This technology is invaluable, especially in agriculture, and would significantly contribute to the economies of these countries.
     </p>
-    <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mt-8">
-      Therefore, we have designed a device to help farmers determine soil properties such as acidity, 
-      temperature, moisture, and salinity. This helps ensure higher yields and reduced losses.
+    <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
+      Therefore, we have designed a device to help farmers determine soil properties such as acidity, temperature, moisture, and salinity. 
+      This helps ensure higher yields and reduced losses.
     </p>
-    <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mt-8">
-      The device is placed in the soil and displays the optimal crop on its screen based on sensor readings, 
-      eliminating any effort, time, or losses. Furthermore, the device can be powered by solar energy to 
-      ensure continuous operation.
+    <p class="text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto">
+      The device is placed in the soil and displays the optimal crop on its screen based on sensor readings — 
+      eliminating any effort, time, or losses. Furthermore, the device can be powered by solar energy to ensure continuous operation.
     </p>
   </section>
 
-  <section class="section bg-white/10 backdrop-blur rounded-3xl py-16">
-    <h2 class="text-4xl md:text-6xl text-center mb-12">Key Features</h2>
-    <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-center">
-      <div class="bg-white/20 p-10 rounded-2xl">
+  <section class="max-w-6xl mx-auto px-6 py-20">
+    <h2 class="text-5xl md:text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
+      Key Features
+    </h2>
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="card p-10 text-center">
+        <div class="text-6xl mb-6">🌡️</div>
         <h3 class="text-2xl font-bold mb-4">Real-time Soil Analysis</h3>
-        <p>pH • Temperature • Moisture • Salinity</p>
+        <p class="text-green-200">pH • Temperature • Moisture • Salinity</p>
       </div>
-      <div class="bg-white/20 p-10 rounded-2xl">
+      <div class="card p-10 text-center">
+        <div class="text-6xl mb-6">🌾</div>
         <h3 class="text-2xl font-bold mb-4">Instant Crop Recommendation</h3>
-        <p>Shows the best crop directly on screen</p>
+        <p class="text-green-200">Best crop shown directly on device screen</p>
       </div>
-      <div class="bg-white/20 p-10 rounded-2xl">
-        <h3 class="text-2xl font-bold mb-4">Solar Powered</h3>
-        <p>Works 24/7 with zero electricity cost</p>
+      <div class="card p-10 text-center">
+        <div class="text-6xl mb-6">☀️</div>
+        <h3 class="text-2xl font-bold mb-4">100% Solar Powered</h3>
+        <p class="text-green-200">Zero electricity cost • Works 24/7</p>
       </div>
     </div>
   </section>
 
-  <section class="section text-center">
-    <h2 class="text-5xl md:text-7xl font-bold mb-10">Made for Farmers,<br>By Future Thinkers</h2>
-    <p class="text-2xl">Ahmed Yousri • Agricultural Innovation Project</p>
+  <section class="text-center py-20">
+    <p class="text-3xl font-light text-cyan-200">Made with ❤️ by Ahmed Yousri</p>
   </section>
 
-  <!-- Arabic Section -->
-  <section id="arabic" class="section bg-black/40 mt-32 pt-20">
-    <div class="max-w-1100px mx-auto">
-      <h1 class="text-6xl md:text-8xl font-extrabold text-white text-center mb-6">Soil Tongue</h1>
-      <p class="text-3xl md:text-5xl text-green-300 text-center mb-16">تحليل ذكي للتربة لأعلى إنتاجية</p>
+  <!-- Arabic Part (Bottom) -->
+  <section id="arabic" class="bg-black/30 backdrop-blur-xl py-32 mt-20">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="font-black text-6xl md:text-8xl mb-6 bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent">
+        Soil Tongue
+      </h1>
+      <p class="text-3xl md:text-5xl text-cyan-300 mb-16">تحليل ذكي للتربة لأعلى إنتاجية ممكنة</p>
 
-      <h2 class="text-4xl md:text-6xl text-center mb-12">ثورة في عالم الزراعة</h2>
-      <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto text-right" dir="rtl" lang="ar">
-        في كثير من الدول، يفتقر المزارعون إلى المعرفة باستخدام التقنيات الحديثة مثل الأردوينو وأجهزة الاستشعار الخاصة به. 
-        هذه التقنية لا تقدر بثمن، خاصة في الزراعة، وستساهم بشكل كبير في اقتصاديات هذه الدول.
-      </p>
-      <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mt-8 text-right" dir="rtl" lang="ar">
-        لذلك قمنا بتصميم جهاز يساعد المزارعين على معرفة خصائص التربة مثل الحموضة ودرجة الحرارة والرطوبة والملوحة، 
-        مما يضمن إنتاجية أعلى وتقليل الخسائر.
-      </p>
-      <p class="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto mt-8 text-right" dir="rtl" lang="ar">
-        يوضع الجهاز في التربة ويعرض المحصول الأمثل على شاشته مباشرة بناءً على قراءات الحساسات، 
-        دون أي مجهود أو وقت أو خسائر. كما يمكن تشغيل الجهاز بالطاقة الشمسية لضمان استمرارية العمل.
-      </p>
+      <div class="space-y-10 text-xl md:text-2xl text-right" dir="rtl" lang="ar">
+        <p class="max-w-4xl mx-auto">
+          في كثير من الدول يفتقر المزارعون للمعرفة باستخدام التقنيات الحديثة مثل الأردوينو وحساساته، 
+          وهذه التقنية لا تُقدَّر بثمن في الزراعة وتساهم بشكل كبير في اقتصاديات تلك الدول.
+        </p>
+        <p class="max-w-4xl mx-auto">
+          لذلك صممنا جهازًا يساعد المزارع على معرفة خصائص التربة (الحموضة – درجة الحرارة – الرطوبة – الملوحة) 
+          لضمان إنتاج أعلى وخسائر أقل.
+        </p>
+        <p class="max-w-4xl mx-auto">
+          يُوضع الجهاز في التربة ويعرض المحصول الأنسب مباشرة على شاشته بناءً على قراءات الحساسات، 
+          دون مجهود أو وقت أو خسائر. كما يمكن تشغيله بالكامل بالطاقة الشمسية ليعمل باستمرار.
+        </p>
+      </div>
 
-      <h2 class="text-4xl md:text-6xl text-center my-16">المميزات الرئيسية</h2>
-      <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto text-center">
-        <div class="bg-white/20 p-10 rounded-2xl">
+      <h2 class="text-4xl md:text-6xl font-bold my-20 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
+        المميزات الرئيسية
+      </h2>
+      <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div class="card p-12">
+          <div class="text-6xl mb-6">🌡️</div>
           <h3 class="text-2xl font-bold mb-4">تحليل فوري للتربة</h3>
           <p>الحموضة • درجة الحرارة • الرطوبة • الملوحة</p>
         </div>
-        <div class="bg-white/20 p-10 rounded-2xl">
-          <h3 class="text-2xl font-bold mb-4">اقتراح محصول فوري</h3>
-          <p>يعرض أفضل محصول مباشرة على الشاشة</p>
+        <div class="card p-12">
+          <div class="text-6xl mb-6">🌾</div>
+          <h3 class="text-2xl font-bold mb-4">اقتراح المحصول فورًا</h3>
+          <p>أفضل محصول يظهر مباشرة على شاشة الجهاز</p>
         </div>
-        <div class="bg-white/20 p-10 rounded-2xl">
-          <h3 class="text-2xl font-bold mb-4">يعمل بالطاقة الشمسية</h3>
-          <p>يعمل 24/7 بدون تكلفة كهرباء</p>
+        <div class="card p-12">
+          <div class="text-6xl mb-6">☀️</div>
+          <h3 class="text-2xl font-bold mb-4">طاقة شمسية 100%</h3>
+          <p>لا تكلفة كهرباء • يعمل 24 ساعة</p>
         </div>
       </div>
 
-      <div class="text-center mt-20 pb-20">
-        <p class="text-2xl">تم التطوير بواسطة المهندس أحمد يوسري</p>
-        <p class="text-4xl mt-4">🌱 مشروع تخرج لتطوير الزراعة المستدامة</p>
+      <div class="mt-20 text-3xl text-cyan-200">
+        تم التطوير بواسطة المهندس أحمد يوسري
       </div>
     </div>
   </section>
 
-  <footer class="text-center py-10 text-green-200">
-    <p class="text-lg">© 2025 Soil Tongue - All Rights Reserved</p>
+  <footer class="text-center py-12 text-green-300 text-lg">
+    © 2025 Soil Tongue – All Rights Reserved
   </footer>
 
 </body>
