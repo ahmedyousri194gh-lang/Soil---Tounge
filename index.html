@@ -10,112 +10,96 @@
     body { font-family: 'Inter', sans-serif; 
            background: linear-gradient(135deg, #0f2417 0%, #0a3d2e 100%); 
            color: #f0fdf4; }
-    .glass { background: rgba(255,255,255,0.07); backdrop-filter: blur(12px); 
-             border: 1px solid rgba(255,255,255,0.1); }
-    .btn { background: linear-gradient(90deg, #22d3ee, #06b6d4); padding: 16px 40px; 
-           border-radius: 999px; font-weight: 600; color: white;
-           box-shadow: 0 10px 30px rgba(34,211,238,0.3); transition: all 0.4s; }
-    .btn:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(34,211,238,0.4); }
-    .card { background: rgba(255,255,255,0.08); backdrop-filter: blur(10px); 
-            border-radius: 24px; border: 1px solid rgba(255,255,255,0.12); }
+    .glass { background: rgba(255,255,255,0.08); backdrop-filter: blur(14px); 
+             border: 1px solid rgba(255,255,255,0.15); border-radius: 28px;
+             transition: all 0.4s; }
+    .glass:hover { transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+    .btn { background: linear-gradient(90deg, #22d3ee, #06b6d4); padding: 18px 48px; 
+           border-radius: 999px; font-weight: 700; color: white;
+           box-shadow: 0 10px 30px rgba(34,211,238,0.4); transition: all 0.4s; }
+    .btn:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(34,211,238,0.5); }
 
     .main-title {
-      font-size: 7.8rem;
-      font-weight: 900;
+      font-size: 7.8rem; font-weight: 900;
       background: linear-gradient(90deg, #86efac, #22d3ee);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
     @media (max-width: 768px) { .main-title { font-size: 4.8rem; } }
   </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-  <!-- English Header مع إيموجي -->
+  <!-- Header -->
   <header class="text-center py-32 px-6">
     <h1 class="main-title mb-4">Soil Tongue</h1>
     <p class="text-3xl md:text-5xl text-cyan-300 font-light mb-12 tracking-wider">
       Smart Soil Analysis for Maximum Yield
     </p>
-    <a href="#arabic" class="btn text-white inline-block text-xl">النسخة العربية</a>
+    <a href="#arabic" class="btn text-xl">النسخة العربية</a>
   </header>
 
-  <!-- English Content مع إيموجيات -->
-  <section class="max-w-5xl mx-auto px-6 py-20 text-center space-y-10 text-xl md:text-2xl">
-    <p>In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors.</p>
-    <p>We designed a device that measures soil properties and shows the best crop directly on screen.</p>
-    <p class="text-2xl font-bold text-green-300">Solar-powered • Zero effort • Maximum profit</p>
-  </section>
-
-  <!-- Features مع إيموجيات -->
-  <section class="max-w-6xl mx-auto px-6 py-20">
-    <h2 class="text-5xl md:text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
+  <!-- English Features - المربعات مظبوطة + إيموجيات واضحة -->
+  <section class="max-w-7xl mx-auto px-6 py-20">
+    <h2 class="text-5xl md:text-6xl font-bold text-center mb-20 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
       Key Features
     </h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="card p-12 text-center">
-        <div class="text-7xl mb-6">pH • Temperature • Water Drop • Salt</div>
-        <h3 class="text-2xl font-bold mb-4">Real-time Soil Analysis</h3>
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="glass p-12 text-center">
+        <div class="text-8xl mb-6">pH Test • Thermometer • Droplet • Salt Shaker</div>
+        <h3 class="text-3xl font-bold mb-3 text-cyan-200">Real-time Soil Analysis</h3>
+        <p class="text-green-200 text-lg">pH • Temperature • Moisture • Salinity</p>
       </div>
-      <div class="card p-12 text-center">
-        <div class="text-7xl mb-6">Crop</div>
-        <h3 class="text-2xl font-bold mb-4">Instant Crop Recommendation</h3>
+      <div class="glass p-12 text-center">
+        <div class="text-8xl mb-6">Wheat • Seedling</div>
+        <h3 class="text-3xl font-bold mb-3 text-cyan-200">Instant Crop Recommendation</h3>
+        <p class="text-green-200 text-lg">Best crop appears directly on screen</p>
       </div>
-      <div class="card p-12 text-center">
-        <div class="text-7xl mb-6">Solar</div>
-        <h3 class="text-2xl font-bold mb-4">100% Solar Powered</h3>
+      <div class="glass p-12 text-center">
+        <div class="text-8xl mb-6">Solar Panel • Sun</div>
+        <h3 class="text-3xl font-bold mb-3 text-cyan-200">100% Solar Powered</h3>
+        <p class="text-green-200 text-lg">Zero electricity cost • Works 24/7</p>
       </div>
     </div>
   </section>
 
-  <!-- Arabic Section مع إيموجيات -->
+  <!-- Arabic Section -->
   <section id="arabic" class="bg-black/30 backdrop-blur-xl py-32 mt-20">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="font-black text-7xl md:text-9xl mb-6 bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent">
-        Soil Tongue
-      </h1>
-      <p class="text-4xl md:text-6xl text-cyan-300 mb-16">تحليل ذكي للتربة لأعلى إنتاجية</p>
-
-      <div class="space-y-10 text-xl md:text-2xl text-right" dir="rtl" lang="ar">
-        <p class="max-w-4xl mx-auto">
-          في كثير من الدول يفتقر المزارعون للمعرفة باستخدام الأردوينو وحساساته، 
-          وهذه التقنية لا تُقدَّر بثمن في الزراعة.
-        </p>
-        <p class="max-w-4xl mx-auto">
-          لذلك صممنا جهازًا يقيس خصائص التربة (الحموضة – الحرارة – الرطوبة – الملوحة) 
-          ويعرض المحصول الأنسب مباشرة على الشاشة.
-        </p>
-        <p class="text-2xl font-bold text-green-300">
-          يعمل بالطاقة الشمسية 100% • صفر مجهود • أعلى ربح
-        </p>
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center">
+        <h1 class="font-black text-8xl md:text-10xl mb-8 bg-gradient-to-r from-green-300 to-cyan-300 bg-clip-text text-transparent">
+          Soil Tongue
+        </h1>
+        <p class="text-4xl md:text-6xl text-cyan-300 mb-20">تحليل ذكي للتربة لأعلى إنتاجية</p>
       </div>
 
-      <h2 class="text-4xl md:text-6xl font-bold my-20 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
-        المميزات الرئيسية
-      </h2>
-      <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        <div class="card p-12 text-center">
-          <div class="text-7xl mb-6">pH • Temperature • Water Drop • Salt</div>
-          <h3 class="text-2xl font-bold mb-4">تحليل فوري للتربة</h3>
+      <div class="grid md:grid-cols-3 gap-12 mt-16">
+        <div class="glass p-14 text-center">
+          <div class="text-8xl mb-6">pH Test • Thermometer • Droplet • Salt Shaker</div>
+          <h3 class="text-3xl font-bold mb-3 text-cyan-200">تحليل فوري للتربة</h3>
+          <p class="text-green-200 text-lg">الحموضة • الحرارة • الرطوبة • الملوحة</p>
         </div>
-        <div class="card p-12 text-center">
-          <div class="text-7xl mb-6">Crop</div>
-          <h3 class="text-2xl font-bold mb-4">اقتراح المحصول فورًا</h3>
+        <div class="glass p-14 text-center">
+          <div class="text-8xl mb-6">Wheat • Seedling</div>
+          <h3 class="text-3xl font-bold mb-3 text-cyan-200">اقتراح المحصول فورًا</h3>
+          <p class="text-green-200 text-lg">أفضل محصول يظهر مباشرة على الشاشة</p>
         </div>
-        <div class="card p-12 text-center">
-          <div class="text-7xl mb-6">Solar</div>
-          <h3 class="text-2xl font-bold mb-4">طاقة شمسية 100%</h3>
+        <div class="glass p-14 text-center">
+          <div class="text-8xl mb-6">Solar Panel • Sun</div>
+          <h3 class="text-3xl font-bold mb-3 text-cyan-200">طاقة شمسية 100%</h3>
+          <p class="text-green-200 text-lg">صفر تكلفة كهرباء • يعمل 24 ساعة</p>
         </div>
       </div>
 
-      <div class="mt-20 text-3xl text-cyan-200">
-        تم التطوير بواسطة المهندس أحمد يوسري
+      <div class="text-center mt-24">
+        <p class="text-4xl text-cyan-200 font-light">
+          تم التطوير بواسطة المهندس أحمد يوسري
+        </p>
       </div>
     </div>
   </section>
 
-  <footer class="text-center py-12 text-green-300 text-lg">
-    © 2025 Soil Tongue – All Rights Reserved
+  <footer class="text-center py-16 text-green-300 text-xl">
+    © 2025 Soil Tongue – جميع الحقوق محفوظة
   </footer>
 
 </body>
