@@ -1,182 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soil Tongue - Smart Soil Analysis for Maximum Yield</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Soil Tongue — Smart Soil Analysis</title>
+
+  <!-- Fonts + GSAP CDN -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #061826 0%, #083344 50%, #0a5a4d 100%);
-      color: #f0fdf4;
-      animation: fadeIn 1.5s ease-in-out;
+    :root{
+      --bg-dark:#071914;        /* deep green/earth */
+      --bg-mid:#0b3d2e;         /* darker green */
+      --accent-green:#59d28a;   /* bright green */
+      --muted-green:#2f855a;
+      --earth:#b36b2a;          /* terracotta */
+      --card:#0f3f2f;
+      --glass: rgba(255,255,255,0.04);
+      --glass-strong: rgba(255,255,255,0.08);
+      --text:#e7fff7;
+      --muted-text:#cfeee1;
+      --glass-border: rgba(255,255,255,0.08);
+      --radius:20px;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Inter',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg-dark), #05302a 60%, #082a1f 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      scroll-behavior:smooth;
+      line-height:1.5;
     }
 
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1.2s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .glass {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 30px;
-      transition: all 0.4s;
-      animation: fadeUp 1.4s ease;
-    }
-
-    .glass:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-
-    .btn {
-      background: linear-gradient(90deg, #1dd4f2, #0fb6d1);
-      padding: 18px 48px;
+    /* NAV */
+    .navbar {
+      position: sticky;
+      top: 14px;
+      display:flex;
+      gap:18px;
+      justify-content:center;
+      padding:10px 18px;
+      z-index:100;
+      transition: all .35s ease;
+      margin: 10px auto;
+      width: min(1200px, 95%);
       border-radius: 999px;
-      font-weight: 700;
-      color: white;
-      box-shadow: 0 10px 30px rgba(34,211,238,0.4);
-      transition: all 0.4s;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.03);
+      backdrop-filter: blur(8px);
+    }
+    .navbar.scrolled{
+      transform: translateY(-6px) scale(.995);
+      background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      box-shadow: 0 10px 28px rgba(2,10,8,0.6);
+    }
+    .nav-link{
+      color:var(--muted-text);
+      text-decoration:none;
+      font-weight:600;
+      padding:10px 14px;
+      border-radius:999px;
+      transition: all .25s ease;
+      letter-spacing:.3px;
+    }
+    .nav-link:hover{
+      color:var(--text);
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      transform:translateY(-2px);
+    }
+    .brand{
+      font-weight:900;
+      font-size:1.05rem;
+      color:var(--accent-green);
+      margin-right:16px;
     }
 
-    .btn:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(34,211,238,0.5);
+    /* HERO */
+    header.hero{
+      padding:64px 20px 36px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:18px;
+      text-align:center;
+      width:min(1200px,95%);
+      margin: 10px auto 40px;
+    }
+    h1.main-title{
+      font-size: clamp(48px, 8vw, 96px);
+      margin:0;
+      line-height:0.9;
+      font-weight:900;
+      background: linear-gradient(90deg,#b8f3b0,#4ce9d0);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow: 0 6px 30px rgba(11,53,38,0.25);
+      transition: all .4s ease;
+    }
+    p.lead{
+      max-width:920px;
+      margin:0 auto;
+      color:var(--muted-text);
+      font-size:clamp(16px,2vw,20px);
+    }
+    .cta-row{
+      display:flex;
+      gap:12px;
+      margin-top:12px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    .btn{
+      appearance:none;
+      border:0;
+      background: linear-gradient(90deg,var(--accent-green), var(--muted-green));
+      color:#022;
+      padding:12px 28px;
+      font-weight:700;
+      border-radius:999px;
+      box-shadow: 0 12px 30px rgba(39,160,99,0.12);
+      cursor:pointer;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .btn.secondary{
+      background:transparent;
+      color:var(--muted-text);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .btn:hover{ transform: translateY(-6px) }
+
+    /* FEATURES */
+    .features{
+      width:min(1200px,95%);
+      margin: 30px auto;
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+    }
+    @media (max-width:880px){ .features{ grid-template-columns: repeat(1,1fr);} }
+
+    .feature-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding:20px;
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .feature-card:hover{ transform: translateY(-8px) }
+    .feature-icon{ font-size:34px; }
+    .feature-title{ font-weight:800; margin:8px 0; color:var(--accent-green); }
+    .feature-desc{ color:var(--muted-text); font-size:15px }
+
+    /* COMPONENTS - SHAPE C: Modern Cards */
+    section#components{
+      width:min(1200px,95%);
+      margin: 48px auto;
+      padding-bottom:40px;
+    }
+    .section-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      margin-bottom:18px;
+    }
+    .section-head h2{ margin:0; font-size:28px; color:var(--accent-green) }
+    .cards-grid{
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:18px;
+    }
+    @media (max-width:1000px){ .cards-grid{ grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:640px){ .cards-grid{ grid-template-columns: repeat(1,1fr); } }
+
+    .comp-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+      border-radius: 16px;
+      padding:14px;
+      border:1px solid rgba(255,255,255,0.06);
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      transition: transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .45s;
+      overflow:hidden;
+      position:relative;
+    }
+    .comp-card:hover{ transform: translateY(-10px) scale(1.01); box-shadow: 0 18px 40px rgba(0,0,0,0.6) }
+    .comp-thumb{ width:110px; height:90px; border-radius:12px; object-fit:cover; flex-shrink:0; }
+    .comp-body{ flex:1; }
+    .comp-title{ font-weight:800; color:var(--muted-green); margin:0 0 6px }
+    .comp-desc{ color:var(--muted-text); font-size:14px; margin:0 0 8px }
+    .comp-meta{ font-size:13px; color:rgba(255,255,255,0.55) }
+
+    /* Zoom class for GSAP */
+    .zoomable{ transform-origin:center center; }
+
+    /* ARABIC SECTION */
+    #arabic{
+      margin-top:48px;
+      background: linear-gradient(180deg, rgba(8,30,20,0.35), rgba(0,0,0,0.15));
+      padding:36px 18px;
+      border-radius:16px;
+      width:min(1200px,95%);
+      margin-left:auto; margin-right:auto;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    #arabic .container{ direction:rtl; text-align:right; }
+
+    /* FOOTER */
+    footer{
+      margin-top:40px;
+      padding:28px 18px;
+      text-align:center;
+      color:var(--muted-text);
+      font-size:14px;
     }
 
-    h1.main-title {
-      font-size: 8.5rem;
-      font-weight: 900;
-      background: linear-gradient(90deg, #9fffc8, #4deff1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeUp 1s ease;
-    }
+    /* small helpers */
+    .muted{ color:var(--muted-text) }
+    .pill{ background: rgba(255,255,255,0.03); padding:6px 10px; border-radius:999px; font-weight:700; color:var(--muted-text); }
 
-    @media (max-width: 768px) {
-      h1.main-title { font-size: 4.5rem; }
-    }
+    /* Animations default state - used with IntersectionObserver/GSAP */
+    .hidden-anim{ opacity:0; transform: translateY(24px) scale(.98); filter: blur(.6px); }
   </style>
 </head>
-<body class="min-h-screen">
+<body>
 
-  <header class="text-center py-32 px-6 fade-up">
-    <h1 class="main-title mb-6">Soil Tongue</h1>
-    <p class="text-3xl md:text-5xl text-cyan-300 font-light mb-12 tracking-wider">
-      Smart Soil Analysis for Maximum Yield
-    </p>
-    <a href="#arabic" class="btn text-xl">النسخة العربية</a>
+  <!-- NAVBAR -->
+  <div class="navbar" id="nav">
+    <div class="brand">Soil Tongue</div>
+    <a class="nav-link" href="#home">Home</a>
+    <a class="nav-link" href="#components">Components</a>
+    <a class="nav-link" href="#arabic">Arabic</a>
+  </div>
+
+  <!-- HERO / HOME -->
+  <header class="hero" id="home" aria-label="Home section">
+    <h1 class="main-title" id="mainTitle">Soil Tongue</h1>
+    <p class="lead">Smart soil analysis device that measures pH, temperature, moisture and salinity — recommends the best crop and runs on solar power for continuous operation.</p>
+
+    <div class="cta-row" style="margin-top:16px;">
+      <button class="btn" onclick="document.getElementById('components').scrollIntoView({behavior:'smooth'})">View Components</button>
+      <a class="btn secondary nav-link" href="#arabic">النسخة العربية</a>
+    </div>
   </header>
 
-  <section class="max-w-5xl scroll-animate mx-auto px-6 py-20 text-center fade-up">
-    <p class="text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
-      In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors.
-      This technology is invaluable, especially in agriculture, and would significantly contribute to national economies.
-    </p>
-    <p class="text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
-      Therefore, we designed a device that helps farmers determine soil properties such as acidity, temperature, moisture, and salinity.
-      This ensures higher yields and reduced losses.
-    </p>
-    <p class="text-2xl leading-relaxed max-w-4xl mx-auto">
-      The device is placed in soil and displays the optimal crop on its screen based on sensor readings.
-      It can be fully powered by solar energy to operate continuously.
-    </p>
-  </section>
-
-  <section class="max-w-6xl scroll-animate mx-auto px-6 py-20 fade-up">
-    <h2 class="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
-      Key Features
-    </h2>
-
-    <div class="grid md:grid-cols-3 gap-12">
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">🌡️</div>
-        <h3 class="text-3xl font-bold mb-4">Real-time Soil Analysis</h3>
-        <p class="text-green-200 text-lg">pH • Temperature • Moisture • Salinity</p>
+  <!-- FEATURES -->
+  <section class="features" aria-label="Key features">
+    <div class="feature-card hidden-anim" data-animate>
+      <div class="feature-icon">🌡️</div>
+      <div>
+        <div class="feature-title">Real-time Soil Analysis</div>
+        <div class="feature-desc">pH • Temperature • Moisture • Salinity — live readings to guide decisions.</div>
       </div>
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">🌾</div>
-        <h3 class="text-3xl font-bold mb-4">Instant Crop Recommendation</h3>
-        <p class="text-green-200 text-lg">Best crop shown directly on screen</p>
+    </div>
+
+    <div class="feature-card hidden-anim" data-animate>
+      <div class="feature-icon">🌾</div>
+      <div>
+        <div class="feature-title">Instant Crop Recommendation</div>
+        <div class="feature-desc">Device suggests the best crop based on sensor data and local conditions.</div>
       </div>
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">☀️</div>
-        <h3 class="text-3xl font-bold mb-4">100% Solar Powered</h3>
-        <p class="text-green-200 text-lg">Zero electricity cost • Works 24/7</p>
+    </div>
+
+    <div class="feature-card hidden-anim" data-animate>
+      <div class="feature-icon">☀️</div>
+      <div>
+        <div class="feature-title">100% Solar Powered</div>
+        <div class="feature-desc">Low maintenance, off-grid operation for continuous monitoring.</div>
       </div>
     </div>
   </section>
 
-  <section class="text-center py-20 scroll-animate fade-up">
-    <p class="text-3xl font-light text-cyan-200">Made with ❤️ by Ahmed Yousri</p>
+  <!-- COMPONENTS (Shape C: Modern Cards) -->
+  <section id="components" aria-label="Components section">
+    <div class="section-head">
+      <h2>Project Components</h2>
+      <div class="pill">Hardware • Sensors • Wiring</div>
+    </div>
+
+    <div class="cards-grid">
+      <!-- Card 1 -->
+      <article class="comp-card hidden-anim zoomable" data-animate>
+        <img class="comp-thumb" src="/mnt/data/ISEF.jpeg" alt="Prototype photo" />
+        <div class="comp-body">
+          <h3 class="comp-title">Assembled Prototype</h3>
+          <p class="comp-desc">Main assembled prototype tested in soil during field trials. Demonstrates physical layout and installed sensors.</p>
+          <div class="comp-meta">Used in ISEF demo • Prototype frame + enclosure</div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="comp-card hidden-anim zoomable" data-animate>
+        <img class="comp-thumb" src="/mnt/data/1940e846-a456-4fe6-89e4-16ed6edf0966.png" alt="DS18B20 waterproof sensor" />
+        <div class="comp-body">
+          <h3 class="comp-title">DS18B20 (Waterproof)</h3>
+          <p class="comp-desc">Waterproof digital temperature sensor used for measuring soil temperature in-situ.</p>
+          <div class="comp-meta">Digital • 1-Wire • Waterproof probe</div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="comp-card hidden-anim zoomable" data-animate>
+        <img class="comp-thumb" src="/mnt/data/f5adda0f-b964-4721-bb39-2010a3356f29.png" alt="Soil moisture sensor" />
+        <div class="comp-body">
+          <h3 class="comp-title">Soil Moisture Sensor</h3>
+          <p class="comp-desc">Resistive-type moisture sensor used to estimate volumetric water content of soil. Mounted on probe.</p>
+          <div class="comp-meta">Analog output • Calibrated in lab</div>
+        </div>
+      </article>
+
+      <!-- Add more cards as needed; placeholders -->
+      <article class="comp-card hidden-anim zoomable" data-animate>
+        <img class="comp-thumb" src="/mnt/data/ISEF.jpeg" alt="placeholder" />
+        <div class="comp-body">
+          <h3 class="comp-title">Solar Panel & Power</h3>
+          <p class="comp-desc">Compact solar module and battery pack to supply continuous power for the device and display.</p>
+          <div class="comp-meta">MPPT charge controller • Li-ion battery</div>
+        </div>
+      </article>
+
+      <article class="comp-card hidden-anim zoomable" data-animate>
+        <img class="comp-thumb" src="/mnt/data/1940e846-a456-4fe6-89e4-16ed6edf0966.png" alt="placeholder-sensor" />
+        <div class="comp-body">
+          <h3 class="comp-title">pH Sensor Module</h3>
+          <p class="comp-desc">pH electrode with amplifier for measuring soil acidity; readings processed via ADC.</p>
+          <div class="comp-meta">Analog pH probe • Signal conditioning</div>
+        </div>
+      </article>
+
+      <article class="comp-card hidden-anim zoomable" data-animate>
+        <img class="comp-thumb" src="/mnt/data/f5adda0f-b964-4721-bb39-2010a3356f29.png" alt="placeholder" />
+        <div class="comp-body">
+          <h3 class="comp-title">Salinity / EC Sensor</h3>
+          <p class="comp-desc">Electrical conductivity probe to estimate salinity and nutrient concentration in the soil.</p>
+          <div class="comp-meta">EC probe • Calibration recommended</div>
+        </div>
+      </article>
+    </div>
   </section>
 
+  <!-- ARABIC SECTION (Full translated) -->
+  <section id="arabic" aria-label="Arabic translation">
+    <div style="max-width:1100px;margin:0 auto;">
+      <h2 style="color:var(--accent-green);margin:0 0 12px;font-size:28px">النسخة العربية — Soil Tongue</h2>
+      <p class="muted" style="margin:6px 0 18px">تحليل ذكي للتربة لزيادة الإنتاجية — يقيس الحموضة، الحرارة، الرطوبة والملوحة ويقترح أفضل المحاصيل.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;">
+        <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);">
+          <h3 style="margin:0 0 8px;color:var(--muted-green)">فكرة المشروع</h3>
+          <p style="margin:0;color:var(--muted-text)">جهاز بسيط يُوضع داخل التربة لقياس خصائصها الأساسية وعرض المحصول الأنسب مباشرة على الشاشة بالإضافة إلى تخزين البيانات وإمكانية إرسالها لاحقًا.</p>
+        </div>
+
+        <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);">
+          <h3 style="margin:0 0 8px;color:var(--muted-green)">أهداف المشروع</h3>
+          <ul style="margin:0 0 0 16px;color:var(--muted-text);padding-left:12px">
+            <li>توفير توصيات للمزارعين لزيادة المحصول وتقليل الخسائر.</li>
+            <li>تمكين التشغيل بالطاقة الشمسية للعمل في المناطق دون شبكة كهرباء.</li>
+            <li>تصميم منظومة قابلة للتطوير والقياس الدقيق.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:18px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn" onclick="window.scrollTo({top:document.getElementById('components').offsetTop-24, behavior:'smooth'})">عرض المكونات</button>
+        <a class="nav-link" href="#home">العودة للرئيسية</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Soil Tongue — Developed by Ahmed Yousri · All rights reserved.
+  </footer>
+
+  <!-- SCRIPTS: IntersectionObserver + GSAP ScrollTrigger animations + Navbar transition -->
   <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-up');
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const sc = window.scrollY;
+      if (sc > 20) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+      lastScroll = sc;
+    });
+
+    // IntersectionObserver fallback to add class for CSS fallback animations (if GSAP not ready)
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(ent => {
+        if (ent.isIntersecting) {
+          ent.target.classList.remove('hidden-anim');
+          ent.target.classList.add('visible-anim');
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.18 });
 
-    document.querySelectorAll('.scroll-animate').forEach(el => {
-      observer.observe(el);
+    document.querySelectorAll('[data-animate]').forEach(el => {
+      io.observe(el);
+    });
+
+    // GSAP Animations (Fade, Slide, Zoom) — registers ScrollTrigger
+    if (window.gsap) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Fade+Slide for feature cards and section heads
+      gsap.utils.toArray('.feature-card, .section-head, #arabic > div').forEach((el, i) => {
+        gsap.from(el, {
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          ease: 'power3.out',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: el, start: 'top 85%' }
+        });
+      });
+
+      // Components: staggered card reveal + zoom-in on images
+      gsap.utils.toArray('.comp-card').forEach((card, idx) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 40,
+          scale: .98,
+          duration: 1.05,
+          ease: 'power3.out',
+          delay: idx * 0.06,
+          scrollTrigger: { trigger: card, start: 'top 90%' }
+        });
+
+        // Zoom-in effect on the thumbnail inside the card
+        const img = card.querySelector('.comp-thumb');
+        if (img) {
+          gsap.from(img, {
+            scale: 1.12,
+            opacity: 0.9,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.06 + idx * 0.03,
+            scrollTrigger: { trigger: card, start: 'top 92%' }
+          });
+        }
+      });
+
+      // Main title subtle float animation
+      gsap.to('#mainTitle', {
+        y: -6,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        duration: 4
+      });
+
+      // Extra zoom for important single elements
+      gsap.utils.toArray('.zoomable').forEach(el => {
+        gsap.fromTo(el, { scale: .985 }, {
+          scale: 1,
+          duration: 0.9,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 90%' }
+        });
+      });
+    }
+
+    // Make sure internal nav links have smooth scroll on older browsers
+    document.querySelectorAll('.nav-link').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Accessibility: allow keyboard users to focus and jump
+    document.querySelectorAll('.comp-card').forEach((card)=> {
+      card.setAttribute('tabindex','0');
+      card.addEventListener('keypress', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          card.style.transform = 'translateY(-6px) scale(1.01)';
+          setTimeout(()=>card.style.transform='', 300);
+        }
+      });
     });
   </script>
+
 </body>
-  
-<!-- Arabic Translation Section -->
-<section id="arabic-version" class="bg-black/30 backdrop-blur-xl py-28 mt-20 scroll-animate" dir="rtl" lang="ar">
-  <div class="max-w-5xl mx-auto px-6 text-center">
-    <h1 class="main-title mb-8">Soil Tongue</h1>
-    <p class="text-3xl md:text-5xl text-cyan-300 mb-16">تحليل ذكي للتربة لتحقيق أعلى إنتاجية</p>
-
-    <div class="space-y-10 text-2xl leading-loose text-right">
-      <p>في العديد من الدول، يفتقر المزارعون إلى المعرفة باستخدام التقنيات الحديثة مثل الأردوينو وحساساته، والتي تعد من أهم الأدوات في تحسين الإنتاج الزراعي وزيادة كفاءة الأراضي.</p>
-      <p>لذلك قمنا بتطوير جهاز يساعد المزارع على تحديد خصائص التربة مثل الحموضة، درجة الحرارة، الرطوبة والملوحة، مما يساعد على اختيار المحصول الأمثل وتقليل الخسائر.</p>
-      <p>يتم وضع الجهاز في التربة ليعرض مباشرة أفضل محصول بناءً على قراءات الحساسات، ويمكن تشغيله بالكامل بالطاقة الشمسية ليعمل 24 ساعة دون توقف.</p>
-    </div>
-
-    <h2 class="text-5xl font-bold my-20 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">المميزات الرئيسية</h2>
-
-    <div class="grid md:grid-cols-3 gap-12">
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">🌡️</div>
-        <h3 class="text-3xl font-bold mb-4">تحليل فوري للتربة</h3>
-        <p>الحموضة • الحرارة • الرطوبة • الملوحة</p>
-      </div>
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">🌾</div>
-        <h3 class="text-3xl font-bold mb-4">اقتراح المحصول الأمثل</h3>
-        <p>المحصول يظهر مباشرة على شاشة الجهاز</p>
-      </div>
-      <div class="glass p-12 text-center">
-        <div class="text-7xl mb-6">☀️</div>
-        <h3 class="text-3xl font-bold mb-4">تشغيل بالطاقة الشمسية</h3>
-        <p>لا يحتاج كهرباء • يعمل طوال اليوم</p>
-      </div>
-    </div>
-
-    <div class="mt-20 text-3xl text-cyan-200">تم التصميم والتطوير بواسطة المهندس أحمد يوسري</div>
-  </div>
-</section>
-
 </html>
