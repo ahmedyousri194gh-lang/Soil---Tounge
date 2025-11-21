@@ -1,161 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-&nbsp;&nbsp;<meta charset="UTF-8" />
-&nbsp;&nbsp;<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-&nbsp;&nbsp;<title>Soil Tongue - Smart Soil Analysis for Maximum Yield</title>
-&nbsp;&nbsp;<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-&nbsp;&nbsp;<script src="https://cdn.tailwindcss.com"></script>
-&nbsp;&nbsp;<style>
-&nbsp;&nbsp;&nbsp;&nbsp;body {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-family: 'Inter', sans-serif;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background: linear-gradient(135deg, #061826 0%, #083344 50%, #0a5a4d 100%);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: #f0fdf4;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation: fadeIn 1.5s ease-in-out;
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;@keyframes fadeIn {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from { opacity: 0; }
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to { opacity: 1; }
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;.fade-up {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(30px);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation: fadeUp 1.2s ease forwards;
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;@keyframes fadeUp {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity: 1;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(0);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;.glass {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background: rgba(255,255,255,0.08);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backdrop-filter: blur(16px);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border: 1px solid rgba(255,255,255,0.12);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 30px;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transition: all 0.4s;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation: fadeUp 1.4s ease;
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;.glass:hover {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(-10px);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;.btn {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background: linear-gradient(90deg, #1dd4f2, #0fb6d1);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding: 18px 48px;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-radius: 999px;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-weight: 700;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color: white;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box-shadow: 0 10px 30px rgba(34,211,238,0.4);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transition: all 0.4s;
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;.btn:hover {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform: translateY(-6px);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box-shadow: 0 20px 50px rgba(34,211,238,0.5);
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;h1.main-title {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size: 8.5rem;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-weight: 900;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background: linear-gradient(90deg, #9fffc8, #4deff1);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-webkit-background-clip: text;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-webkit-text-fill-color: transparent;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;animation: fadeUp 1s ease;
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;@media (max-width: 768px) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;h1.main-title { font-size: 4.5rem; }
-&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soil Tongue - Smart Soil Analysis for Maximum Yield</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #061826 0%, #083344 50%, #0a5a4d 100%);
+      color: #f0fdf4;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      transition: all 0.4s;
+      animation: fadeUp 1.4s ease;
+    }
+
+    .glass:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .btn {
+      background: linear-gradient(90deg, #1dd4f2, #0fb6d1);
+      padding: 18px 48px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: white;
+      box-shadow: 0 10px 30px rgba(34,211,238,0.4);
+      transition: all 0.4s;
+    }
+
+    .btn:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(34,211,238,0.5);
+    }
+
+    h1.main-title {
+      font-size: 8.5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #9fffc8, #4deff1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeUp 1s ease;
+    }
+
+    @media (max-width: 768px) {
+      h1.main-title { font-size: 4.5rem; }
+    }
+  </style>
 </head>
 <body class="min-h-screen">
-&nbsp;&nbsp;<header class="text-center py-32 px-6 fade-up">
-&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="main-title mb-6">Soil Tongue</h1>
-&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-3xl md:text-5xl text-cyan-300 font-light mb-12 tracking-wider">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Smart Soil Analysis for Maximum Yield
-&nbsp;&nbsp;&nbsp;&nbsp;</p>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="#arabic" class="btn text-xl">النسخة العربية</a>
-&nbsp;&nbsp;</header>
-&nbsp;&nbsp;<section class="max-w-5xl scroll-animate mx-auto px-6 py-20 text-center fade-up">
-&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This technology is invaluable, especially in agriculture, and would significantly contribute to national economies.
-&nbsp;&nbsp;&nbsp;&nbsp;</p>
-&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Therefore, we designed a device that helps farmers determine soil properties such as acidity, temperature, moisture, and salinity.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This ensures higher yields and reduced losses.
-&nbsp;&nbsp;&nbsp;&nbsp;</p>
-&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-2xl leading-relaxed max-w-4xl mx-auto">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The device is placed in soil and displays the optimal crop on its screen based on sensor readings.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It can be fully powered by solar energy to operate continuously.
-&nbsp;&nbsp;&nbsp;&nbsp;</p>
-&nbsp;&nbsp;</section>
-&nbsp;&nbsp;<section class="max-w-6xl scroll-animate mx-auto px-6 py-20 fade-up">
-&nbsp;&nbsp;&nbsp;&nbsp;<h2 class="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Key Features
-&nbsp;&nbsp;&nbsp;&nbsp;</h2>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="grid md:grid-cols-3 gap-12">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="glass p-12 text-center">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-7xl mb-6">🌡️</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-3xl font-bold mb-4">Real-time Soil Analysis</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-green-200 text-lg">pH • Temperature • Moisture • Salinity</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="glass p-12 text-center">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-7xl mb-6">🌾</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-3xl font-bold mb-4">Instant Crop Recommendation</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-green-200 text-lg">Best crop shown directly on screen</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="glass p-12 text-center">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-7xl mb-6">☀️</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-3xl font-bold mb-4">100% Solar Powered</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-green-200 text-lg">Zero electricity cost • Works 24/7</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;</section>
-&nbsp;&nbsp;<section class="text-center py-20 scroll-animate fade-up">
-&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-3xl font-light text-cyan-200">Made with ❤️ by Ahmed Yousri</p>
-&nbsp;&nbsp;</section>
-&nbsp;&nbsp;<script>
-&nbsp;&nbsp;&nbsp;&nbsp;const observer = new IntersectionObserver(entries => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entries.forEach(entry => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (entry.isIntersecting) {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;entry.target.classList.add('fade-up');
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;&nbsp;&nbsp;}, { threshold: 0.2 });
-&nbsp;&nbsp;&nbsp;&nbsp;document.querySelectorAll('.scroll-animate').forEach(el => {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;observer.observe(el);
-&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;</script>
+
+  <header class="text-center py-32 px-6 fade-up">
+    <h1 class="main-title mb-6">Soil Tongue</h1>
+    <p class="text-3xl md:text-5xl text-cyan-300 font-light mb-12 tracking-wider">
+      Smart Soil Analysis for Maximum Yield
+    </p>
+    <a href="#arabic" class="btn text-xl">النسخة العربية</a>
+  </header>
+
+  <section class="max-w-5xl scroll-animate mx-auto px-6 py-20 text-center fade-up">
+    <p class="text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
+      In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors.
+      This technology is invaluable, especially in agriculture, and would significantly contribute to national economies.
+    </p>
+    <p class="text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
+      Therefore, we designed a device that helps farmers determine soil properties such as acidity, temperature, moisture, and salinity.
+      This ensures higher yields and reduced losses.
+    </p>
+    <p class="text-2xl leading-relaxed max-w-4xl mx-auto">
+      The device is placed in soil and displays the optimal crop on its screen based on sensor readings.
+      It can be fully powered by solar energy to operate continuously.
+    </p>
+  </section>
+
+  <section class="max-w-6xl scroll-animate mx-auto px-6 py-20 fade-up">
+    <h2 class="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
+      Key Features
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">🌡️</div>
+        <h3 class="text-3xl font-bold mb-4">Real-time Soil Analysis</h3>
+        <p class="text-green-200 text-lg">pH • Temperature • Moisture • Salinity</p>
+      </div>
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">🌾</div>
+        <h3 class="text-3xl font-bold mb-4">Instant Crop Recommendation</h3>
+        <p class="text-green-200 text-lg">Best crop shown directly on screen</p>
+      </div>
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">☀️</div>
+        <h3 class="text-3xl font-bold mb-4">100% Solar Powered</h3>
+        <p class="text-green-200 text-lg">Zero electricity cost • Works 24/7</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="text-center py-20 scroll-animate fade-up">
+    <p class="text-3xl font-light text-cyan-200">Made with ❤️ by Ahmed Yousri</p>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-up');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
-&nbsp;
+  
 <!-- Arabic Translation Section -->
 <section id="arabic-version" class="bg-black/30 backdrop-blur-xl py-28 mt-20 scroll-animate" dir="rtl" lang="ar">
-&nbsp;&nbsp;<div class="max-w-5xl mx-auto px-6 text-center">
-&nbsp;&nbsp;&nbsp;&nbsp;<h1 class="main-title mb-8">Soil Tongue</h1>
-&nbsp;&nbsp;&nbsp;&nbsp;<p class="text-3xl md:text-5xl text-cyan-300 mb-16">تحليل ذكي للتربة لتحقيق أعلى إنتاجية</p>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="space-y-10 text-2xl leading-loose text-right">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>في العديد من الدول، يفتقر المزارعون إلى المعرفة باستخدام التقنيات الحديثة مثل الأردوينو وحساساته، والتي تعد من أهم الأدوات في تحسين الإنتاج الزراعي وزيادة كفاءة الأراضي.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>لذلك قمنا بتطوير جهاز يساعد المزارع على تحديد خصائص التربة مثل الحموضة، درجة الحرارة، الرطوبة والملوحة، مما يساعد على اختيار المحصول الأمثل وتقليل الخسائر.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>يتم وضع الجهاز في التربة ليعرض مباشرة أفضل محصول بناءً على قراءات الحساسات، ويمكن تشغيله بالكامل بالطاقة الشمسية ليعمل 24 ساعة دون توقف.</p>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<h2 class="text-5xl font-bold my-20 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">المميزات الرئيسية</h2>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="grid md:grid-cols-3 gap-12">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="glass p-12 text-center">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-7xl mb-6">🌡️</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-3xl font-bold mb-4">تحليل فوري للتربة</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>الحموضة • الحرارة • الرطوبة • الملوحة</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="glass p-12 text-center">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-7xl mb-6">🌾</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-3xl font-bold mb-4">اقتراح المحصول الأمثل</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>المحصول يظهر مباشرة على شاشة الجهاز</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="glass p-12 text-center">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div class="text-7xl mb-6">☀️</div>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h3 class="text-3xl font-bold mb-4">تشغيل بالطاقة الشمسية</h3>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<p>لا يحتاج كهرباء • يعمل طوال اليوم</p>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;</div>
-&nbsp;&nbsp;&nbsp;&nbsp;<div class="mt-20 text-3xl text-cyan-200">تم التصميم والتطوير بواسطة المهندس أحمد يوسري</div>
-&nbsp;&nbsp;</div>
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h1 class="main-title mb-8">Soil Tongue</h1>
+    <p class="text-3xl md:text-5xl text-cyan-300 mb-16">تحليل ذكي للتربة لتحقيق أعلى إنتاجية</p>
+
+    <div class="space-y-10 text-2xl leading-loose text-right">
+      <p>في العديد من الدول، يفتقر المزارعون إلى المعرفة باستخدام التقنيات الحديثة مثل الأردوينو وحساساته، والتي تعد من أهم الأدوات في تحسين الإنتاج الزراعي وزيادة كفاءة الأراضي.</p>
+      <p>لذلك قمنا بتطوير جهاز يساعد المزارع على تحديد خصائص التربة مثل الحموضة، درجة الحرارة، الرطوبة والملوحة، مما يساعد على اختيار المحصول الأمثل وتقليل الخسائر.</p>
+      <p>يتم وضع الجهاز في التربة ليعرض مباشرة أفضل محصول بناءً على قراءات الحساسات، ويمكن تشغيله بالكامل بالطاقة الشمسية ليعمل 24 ساعة دون توقف.</p>
+    </div>
+
+    <h2 class="text-5xl font-bold my-20 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">المميزات الرئيسية</h2>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">🌡️</div>
+        <h3 class="text-3xl font-bold mb-4">تحليل فوري للتربة</h3>
+        <p>الحموضة • الحرارة • الرطوبة • الملوحة</p>
+      </div>
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">🌾</div>
+        <h3 class="text-3xl font-bold mb-4">اقتراح المحصول الأمثل</h3>
+        <p>المحصول يظهر مباشرة على شاشة الجهاز</p>
+      </div>
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">☀️</div>
+        <h3 class="text-3xl font-bold mb-4">تشغيل بالطاقة الشمسية</h3>
+        <p>لا يحتاج كهرباء • يعمل طوال اليوم</p>
+      </div>
+    </div>
+
+    <div class="mt-20 text-3xl text-cyan-200">تم التصميم والتطوير بواسطة المهندس أحمد يوسري</div>
+  </div>
 </section>
+
 </html>
