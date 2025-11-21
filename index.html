@@ -85,7 +85,7 @@
     <a href="#arabic" class="btn text-xl">النسخة العربية</a>
   </header>
 
-  <section class="max-w-5xl mx-auto px-6 py-20 text-center fade-up">
+  <section class="max-w-5xl scroll-animate mx-auto px-6 py-20 text-center fade-up">
     <p class="text-2xl leading-relaxed max-w-4xl mx-auto mb-10">
       In many countries, farmers lack the knowledge to use modern technologies like Arduino and its sensors.
       This technology is invaluable, especially in agriculture, and would significantly contribute to national economies.
@@ -100,7 +100,7 @@
     </p>
   </section>
 
-  <section class="max-w-6xl mx-auto px-6 py-20 fade-up">
+  <section class="max-w-6xl scroll-animate mx-auto px-6 py-20 fade-up">
     <h2 class="text-6xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">
       Key Features
     </h2>
@@ -124,9 +124,59 @@
     </div>
   </section>
 
-  <section class="text-center py-20 fade-up">
+  <section class="text-center py-20 scroll-animate fade-up">
     <p class="text-3xl font-light text-cyan-200">Made with ❤️ by Ahmed Yousri</p>
   </section>
 
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-up');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 </body>
+  
+<!-- Arabic Translation Section -->
+<section id="arabic-version" class="bg-black/30 backdrop-blur-xl py-28 mt-20 scroll-animate" dir="rtl" lang="ar">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <h1 class="main-title mb-8">Soil Tongue</h1>
+    <p class="text-3xl md:text-5xl text-cyan-300 mb-16">تحليل ذكي للتربة لتحقيق أعلى إنتاجية</p>
+
+    <div class="space-y-10 text-2xl leading-loose text-right">
+      <p>في العديد من الدول، يفتقر المزارعون إلى المعرفة باستخدام التقنيات الحديثة مثل الأردوينو وحساساته، والتي تعد من أهم الأدوات في تحسين الإنتاج الزراعي وزيادة كفاءة الأراضي.</p>
+      <p>لذلك قمنا بتطوير جهاز يساعد المزارع على تحديد خصائص التربة مثل الحموضة، درجة الحرارة، الرطوبة والملوحة، مما يساعد على اختيار المحصول الأمثل وتقليل الخسائر.</p>
+      <p>يتم وضع الجهاز في التربة ليعرض مباشرة أفضل محصول بناءً على قراءات الحساسات، ويمكن تشغيله بالكامل بالطاقة الشمسية ليعمل 24 ساعة دون توقف.</p>
+    </div>
+
+    <h2 class="text-5xl font-bold my-20 text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-cyan-300">المميزات الرئيسية</h2>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">🌡️</div>
+        <h3 class="text-3xl font-bold mb-4">تحليل فوري للتربة</h3>
+        <p>الحموضة • الحرارة • الرطوبة • الملوحة</p>
+      </div>
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">🌾</div>
+        <h3 class="text-3xl font-bold mb-4">اقتراح المحصول الأمثل</h3>
+        <p>المحصول يظهر مباشرة على شاشة الجهاز</p>
+      </div>
+      <div class="glass p-12 text-center">
+        <div class="text-7xl mb-6">☀️</div>
+        <h3 class="text-3xl font-bold mb-4">تشغيل بالطاقة الشمسية</h3>
+        <p>لا يحتاج كهرباء • يعمل طوال اليوم</p>
+      </div>
+    </div>
+
+    <div class="mt-20 text-3xl text-cyan-200">تم التصميم والتطوير بواسطة المهندس أحمد يوسري</div>
+  </div>
+</section>
+
 </html>
